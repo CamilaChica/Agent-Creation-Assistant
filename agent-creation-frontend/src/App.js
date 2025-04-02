@@ -1,3 +1,4 @@
+export default App;
 import React from 'react';
 import AgentForm from './Components/AgentForm';
 import AgentList from './Components/AgentList';
@@ -7,13 +8,16 @@ function App() {
     <div className="App">
       <h1>Agent Creation Assistant</h1>
       <AgentForm />
-      <AgentList />
+      <AgentList /> {
+
+      }
     </div>
   );
 }
 
-export default App;
 
+
+export default App;
 
 
 // import logo from './logo.svg';
