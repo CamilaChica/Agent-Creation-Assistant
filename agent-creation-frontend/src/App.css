@@ -1,4 +1,101 @@
+/* Add a background color to the page */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f7f7f7;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container for the table */
+div {
+  width: 80%;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Title for the table */
+h1 {
+  font-size: 24px;
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* Styling the table */
 table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Table headers styling */
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  font-size: 16px;
+  color: #555;
+}
+
+th {
+  background-color: #3498db;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Styling the table rows */
+tbody tr {
+  transition: background-color 0.3s ease;
+}
+
+/* Alternate row coloring */
+tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+/* Highlight row on hover */
+tbody tr:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+/* Styling the table data cells */
+td {
+  font-size: 14px;
+  color: #777;
+  word-wrap: break-word;
+}
+
+/* Responsive styling: make the table scrollable on small screens */
+@media screen and (max-width: 768px) {
+  table {
+    width: 100%;
+    display: block;
+    overflow-x: auto;
+  }
+
+  th, td {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+}
+
+
+/* table {
   width: 100%;
   border-collapse: collapse;
 }
@@ -14,7 +111,7 @@ th, td {
 
 th {
   background-color: #f4f4f4;
-}
+} */
 
 /* Default: */
 .App {

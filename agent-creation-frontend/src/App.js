@@ -3,17 +3,27 @@ import React, { useState, useEffect } from 'react';
 import AgentForm from './Components/AgentForm'; // Correctly placed at the top
 import AgentList from './Components/AgentList'; // Correctly placed at the top
 import './App.css';
+
 function App() {
   const [agents, setAgents] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchAgents = async () => {
       try {
         const response = await fetch('http://localhost:5000/agents');
         const data = await response.json();
-        setAgents(data);
+        // Check if the response is an array
+        if (Array.isArray(data.agents)) {
+          setAgents(data.agents);
+        } else {
+          throw new Error('Data is not in the expected format');
+        }
       } catch (error) {
-        console.error('Error fetching agents:', error);
+        setError(error.message);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -25,11 +35,19 @@ function App() {
       <h1>Agent Creation Assistant</h1>
       
       <AgentForm />
-   
-      <AgentList agents={agents} />
+      
+      {/* Error message if there is an issue */}
+      {error && <div style={{ color: 'red' }}>Error: {error}</div>}
+      
+      {/* Show loading message while waiting for data */}
+      {loading && <div>Loading agents...</div>}
+
+      {/* Render the list of agents */}
+      {!loading && !error && <AgentList agents={agents} />}
     </div>
   );
 }
+
 
 export default App;
 
